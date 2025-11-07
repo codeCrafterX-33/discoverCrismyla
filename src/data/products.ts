@@ -31,7 +31,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-rose-200 via-rose-100 to-rose-300 dark:from-rose-900 dark:via-rose-800 dark:to-rose-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/blush-inferno.png",
   },
   {
     id: "fo-002",
@@ -42,7 +42,7 @@ export const products: Product[] = [
       "Elegant and sophisticated scent that embraces you with its luxurious fragrance.",
     imageBg:
       "bg-gradient-to-br from-purple-200 via-purple-100 to-purple-300 dark:from-purple-900 dark:via-purple-800 dark:to-purple-700",
-    url: "#",
+    url: "/images/products/Etreinte.png",
   },
   {
     id: "fo-003",
@@ -53,7 +53,7 @@ export const products: Product[] = [
       "Golden moonlight captured in a bottle with enchanting and dreamy aromas.",
     imageBg:
       "bg-gradient-to-br from-amber-200 via-amber-100 to-amber-300 dark:from-amber-900 dark:via-amber-800 dark:to-amber-700",
-    url: "#",
+    url: "/images/products/lune-dor.png",
   },
   {
     id: "fo-004",
@@ -64,7 +64,7 @@ export const products: Product[] = [
       "Soft and delicate fragrance that whispers elegance into any space.",
     imageBg:
       "bg-gradient-to-br from-pink-200 via-pink-100 to-pink-300 dark:from-pink-900 dark:via-pink-800 dark:to-pink-700",
-    url: "#",
+    url: "/images/products/silken-whisper.png",
   },
   {
     id: "fo-005",
@@ -75,7 +75,7 @@ export const products: Product[] = [
       "Midnight muse with mysterious and captivating notes that inspire.",
     imageBg:
       "bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 dark:from-indigo-900 dark:via-indigo-800 dark:to-indigo-700",
-    url: "#",
+    url: "/images/products/muse.png",
   },
   {
     id: "fo-006",
@@ -86,7 +86,7 @@ export const products: Product[] = [
       "Dark floral notes that create an intriguing and sophisticated ambiance.",
     imageBg:
       "bg-gradient-to-br from-violet-200 via-violet-100 to-violet-300 dark:from-violet-900 dark:via-violet-800 dark:to-violet-700",
-    url: "#",
+    url: "/images/products/fleur.png",
   },
   {
     id: "fo-007",
@@ -97,7 +97,7 @@ export const products: Product[] = [
       "Clean, natural scent that creates a fresh and inviting atmosphere.",
     imageBg:
       "bg-gradient-to-br from-stone-200 via-stone-100 to-stone-300 dark:from-stone-900 dark:via-stone-800 dark:to-stone-700",
-    url: "#",
+    url: "/images/products/nude.png",
   },
   {
     id: "fo-008",
@@ -108,7 +108,7 @@ export const products: Product[] = [
       "Luxurious velvet-like fragrance that transforms evenings into elegant experiences.",
     imageBg:
       "bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700",
-    url: "#",
+    url: "/images/products/velour.png",
   },
   {
     id: "fo-009",
@@ -121,7 +121,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-300 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/noir.png",
   },
   {
     id: "fo-010",
@@ -131,7 +131,7 @@ export const products: Product[] = [
     description: "Bold and fiery fragrance with smooth, luxurious undertones.",
     imageBg:
       "bg-gradient-to-br from-red-200 via-red-100 to-red-300 dark:from-red-900 dark:via-red-800 dark:to-red-700",
-    url: "#",
+    url: "/images/products/velvet.png",
   },
   // Diffusers
   {
@@ -145,7 +145,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-yellow-200 via-yellow-100 to-yellow-300 dark:from-yellow-900 dark:via-yellow-800 dark:to-yellow-700",
     tags: ["bestseller", "new"],
     badge: "New",
-    url: "#",
+    url: "/images/products/diffuser-gold.jpg",
   },
   {
     id: "diff-002",
@@ -158,7 +158,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700",
     tags: ["bestseller", "new"],
     badge: "New",
-    url: "#",
+    url: "/images/products/diffuser-silver.jpg",
   },
   {
     id: "diff-003",
@@ -171,7 +171,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/diffuser-black.jpg",
   },
   // Fragrance - 10ml
   {
@@ -183,7 +183,7 @@ export const products: Product[] = [
       "Divine and ethereal fragrance that captivates with its heavenly essence.",
     imageBg:
       "bg-gradient-to-br from-blue-200 via-blue-100 to-blue-300 dark:from-blue-900 dark:via-blue-800 dark:to-blue-700",
-    url: "#",
+    url: "/images/products/heavenly-10ml.jpg",
   },
   {
     id: "frag-10-002",
@@ -194,7 +194,7 @@ export const products: Product[] = [
       "Luxurious woody scent with sparkling diamond-like elegance and sophistication.",
     imageBg:
       "bg-gradient-to-br from-amber-200 via-amber-100 to-amber-300 dark:from-amber-900 dark:via-amber-800 dark:to-amber-700",
-    url: "#",
+    url: "/images/products/diamond woods-10ml.jpg",
   },
   {
     id: "frag-10-003",
@@ -205,7 +205,7 @@ export const products: Product[] = [
       "Mysterious dark fragrance with an alluring aura that commands attention.",
     imageBg:
       "bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700",
-    url: "#",
+    url: "/images/products/aura-noir-10ml.jpg",
   },
   {
     id: "frag-10-004",
@@ -218,7 +218,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-cyan-200 via-cyan-100 to-cyan-300 dark:from-cyan-900 dark:via-cyan-800 dark:to-cyan-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/ocean-spritz-10ml.jpg",
   },
   {
     id: "frag-10-005",
@@ -229,7 +229,7 @@ export const products: Product[] = [
       "Memorable and captivating scent that stays with you throughout the day.",
     imageBg:
       "bg-gradient-to-br from-emerald-200 via-emerald-100 to-emerald-300 dark:from-emerald-900 dark:via-emerald-800 dark:to-emerald-700",
-    url: "#",
+    url: "/images/products/stick-with-me-10ml.jpg",
   },
   // Fragrance - 100ml
   {
@@ -243,7 +243,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-blue-200 via-blue-100 to-blue-300 dark:from-blue-900 dark:via-blue-800 dark:to-blue-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/heavenly-100ml.jpg",
   },
   {
     id: "frag-100-002",
@@ -254,7 +254,7 @@ export const products: Product[] = [
       "Memorable and captivating scent in a luxurious 100ml size that lasts.",
     imageBg:
       "bg-gradient-to-br from-emerald-200 via-emerald-100 to-emerald-300 dark:from-emerald-900 dark:via-emerald-800 dark:to-emerald-700",
-    url: "#",
+    url: "/images/products/stick-with-me-100ml.jpg",
   },
   {
     id: "frag-100-003",
@@ -265,7 +265,7 @@ export const products: Product[] = [
       "Luxurious woody scent with sparkling elegance in a generous 100ml bottle.",
     imageBg:
       "bg-gradient-to-br from-amber-200 via-amber-100 to-amber-300 dark:from-amber-900 dark:via-amber-800 dark:to-amber-700",
-    url: "#",
+    url: "/images/products/diamond woods-100ml.jpeg",
   },
   {
     id: "frag-100-004",
@@ -276,7 +276,7 @@ export const products: Product[] = [
       "Mysterious dark fragrance with an alluring aura in a premium 100ml size.",
     imageBg:
       "bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700",
-    url: "#",
+    url: "/images/products/aura-noir-100ml.jpeg",
   },
   {
     id: "frag-100-005",
@@ -287,7 +287,7 @@ export const products: Product[] = [
       "Fresh oceanic breeze in a generous 100ml bottle, refreshing and invigorating.",
     imageBg:
       "bg-gradient-to-br from-cyan-200 via-cyan-100 to-cyan-300 dark:from-cyan-900 dark:via-cyan-800 dark:to-cyan-700",
-    url: "#",
+    url: "/images/products/ocean-spritz-100ml.jpeg",
   },
   // Haircare & Wig
   {
@@ -301,7 +301,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-green-200 via-green-100 to-green-300 dark:from-green-900 dark:via-green-800 dark:to-green-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/leave-in-conditioner.png",
   },
   {
     id: "hair-002",
@@ -312,7 +312,7 @@ export const products: Product[] = [
       "Traditional Ayurvedic formula enriched with natural ingredients to promote healthy hair growth and vitality.",
     imageBg:
       "bg-gradient-to-br from-yellow-200 via-yellow-100 to-yellow-300 dark:from-yellow-900 dark:via-yellow-800 dark:to-yellow-700",
-    url: "#",
+    url: "/images/products/ayurvedic.png",
   },
   // Skincare
   {
@@ -326,7 +326,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-yellow-200 via-yellow-100 to-yellow-300 dark:from-yellow-900 dark:via-yellow-800 dark:to-yellow-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/lemon_cleansing.png",
   },
   {
     id: "skincare-002",
@@ -337,7 +337,7 @@ export const products: Product[] = [
       "Luxurious body oil that adds a radiant glow and nourishes your skin.",
     imageBg:
       "bg-gradient-to-br from-amber-200 via-amber-100 to-amber-300 dark:from-amber-900 dark:via-amber-800 dark:to-amber-700",
-    url: "images/products/body-highlighter.png",
+    url: "/images/products/body_highlighter.png",
   },
   {
     id: "skincare-003",
@@ -348,7 +348,7 @@ export const products: Product[] = [
       "Traditional Moroccan black soap deeply cleanses and exfoliates for smooth, glowing skin.",
     imageBg:
       "bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700",
-    url: "images/products/moroccan_black_soap.png",
+    url: "/images/products/moroccan_black_soap.png",
   },
   {
     id: "skincare-004",
@@ -359,7 +359,7 @@ export const products: Product[] = [
       "Advanced formula facial mist that instantly hydrates and refreshes your skin throughout the day.",
     imageBg:
       "bg-gradient-to-br from-blue-200 via-blue-100 to-blue-300 dark:from-blue-900 dark:via-blue-800 dark:to-blue-700",
-    url: "#",
+    url: "/images/products/advanced-hydrating.png",
   },
   {
     id: "skincare-005",
@@ -372,7 +372,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-pink-200 via-pink-100 to-pink-300 dark:from-pink-900 dark:via-pink-800 dark:to-pink-700",
     tags: ["bestseller", "new"],
     badge: "New",
-    url: "#",
+    url: "/images/products/silk-glow-lotion.png",
   },
   {
     id: "skincare-006",
@@ -383,7 +383,7 @@ export const products: Product[] = [
       "Nourishing lip balm that keeps your lips soft, smooth, and hydrated.",
     imageBg:
       "bg-gradient-to-br from-rose-200 via-rose-100 to-rose-300 dark:from-rose-900 dark:via-rose-800 dark:to-rose-700",
-    url: "#",
+    url: "/images/products/pink-lips.png",
   },
   {
     id: "skincare-007",
@@ -396,7 +396,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-purple-200 via-purple-100 to-purple-300 dark:from-purple-900 dark:via-purple-800 dark:to-purple-700",
     tags: ["bestseller", "new"],
     badge: "New",
-    url: "#",
+    url: "/images/products/renewal-day-cream.png",
   },
   {
     id: "skincare-008",
@@ -409,7 +409,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 dark:from-indigo-900 dark:via-indigo-800 dark:to-indigo-700",
     tags: ["new"],
     badge: "New",
-    url: "#",
+    url: "/images/products/glow-guard.png",
   },
   {
     id: "skincare-009",
@@ -422,7 +422,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-orange-200 via-orange-100 to-orange-300 dark:from-orange-900 dark:via-orange-800 dark:to-orange-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/c-restore.png",
   },
   {
     id: "skincare-010",
@@ -433,7 +433,7 @@ export const products: Product[] = [
       "Gentle exfoliating soap that reveals silky smooth, glowing skin with each use.",
     imageBg:
       "bg-gradient-to-br from-pink-200 via-pink-100 to-pink-300 dark:from-pink-900 dark:via-pink-800 dark:to-pink-700",
-    url: "#",
+    url: "/images/products/silk-glow-soap.png",
   },
   {
     id: "skincare-011",
@@ -444,7 +444,7 @@ export const products: Product[] = [
       "Artisanal exfoliating soap that polishes skin to reveal a radiant, luminous glow.",
     imageBg:
       "bg-gradient-to-br from-amber-200 via-amber-100 to-amber-300 dark:from-amber-900 dark:via-amber-800 dark:to-amber-700",
-    url: "#",
+    url: "/images/products/radiant-glow-soap.png",
   },
   {
     id: "skincare-012",
@@ -455,7 +455,7 @@ export const products: Product[] = [
       "Pure, natural exfoliating soap for clean, glowing skin that feels fresh and renewed.",
     imageBg:
       "bg-gradient-to-br from-teal-200 via-teal-100 to-teal-300 dark:from-teal-900 dark:via-teal-800 dark:to-teal-700",
-    url: "#",
+    url: "/images/products/pure-glow-soap.png",
   },
   {
     id: "skincare-013",
@@ -466,7 +466,7 @@ export const products: Product[] = [
       "Luxurious body oil that leaves your skin shining with a muse-like radiance.",
     imageBg:
       "bg-gradient-to-br from-amber-200 via-amber-100 to-amber-300 dark:from-amber-900 dark:via-amber-800 dark:to-amber-700",
-    url: "#",
+    url: "/images/products/shine-muse.png",
   },
   {
     id: "skincare-014",
@@ -479,7 +479,7 @@ export const products: Product[] = [
       "bg-gradient-to-br from-sky-200 via-sky-100 to-sky-300 dark:from-sky-900 dark:via-sky-800 dark:to-sky-700",
     tags: ["bestseller"],
     badge: "Bestseller",
-    url: "#",
+    url: "/images/products/magic-glass.png",
   },
   {
     id: "skincare-015",
@@ -490,7 +490,7 @@ export const products: Product[] = [
       "Intensive moisturizer that hydrates deeply while brightening your skin for a pure glow.",
     imageBg:
       "bg-gradient-to-br from-green-200 via-green-100 to-green-300 dark:from-green-900 dark:via-green-800 dark:to-green-700",
-    url: "#",
+    url: "/images/products/pure-glow-lotion.png",
   },
   {
     id: "skincare-016",
@@ -501,7 +501,7 @@ export const products: Product[] = [
       "Radiant moisturizer that illuminates and hydrates, leaving your skin glowing and luminous.",
     imageBg:
       "bg-gradient-to-br from-yellow-200 via-yellow-100 to-yellow-300 dark:from-yellow-900 dark:via-yellow-800 dark:to-yellow-700",
-    url: "#",
+    url: "/images/products/radiant-glow-lotion.png",
   },
   {
     id: "skincare-017",
@@ -512,6 +512,6 @@ export const products: Product[] = [
       "Gentle foamy cleanser that restores and cleanses your skin without stripping natural oils.",
     imageBg:
       "bg-gradient-to-br from-cyan-200 via-cyan-100 to-cyan-300 dark:from-cyan-900 dark:via-cyan-800 dark:to-cyan-700",
-    url: "#",
+    url: "/images/products/derma-restore.png",
   },
 ];

@@ -49,7 +49,7 @@ export function Navbar() {
               defaultValue={currentQuery}
               placeholder="Search products..."
               aria-label="Search products"
-              className="w-48 bg-transparent outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+              className="w-48 bg-transparent text-base outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
             />
             <button type="submit" className="sr-only">
               Search

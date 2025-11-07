@@ -179,7 +179,7 @@ export default function CollectionPage() {
                     }}
                     placeholder="Search products..."
                     aria-label="Search products"
-                    className="w-full bg-transparent outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+                    className="w-full bg-transparent text-base outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
                   />
                 </div>
               </div>
@@ -537,17 +537,11 @@ export default function CollectionPage() {
                   </p>
                 </motion.div>
               ) : (
-                <motion.ul
-                  key={`products-${filtered.length}-${query}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                  className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                >
+                <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {filtered.map((p, idx) => (
                     <ProductCard key={p.id} product={p} index={idx} />
                   ))}
-                </motion.ul>
+                </ul>
               )}
             </div>
           </div>
