@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useCart } from "@crismyla/context/cart-context";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 
 export function Navbar() {
   const { count } = useCart();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const currentQuery = searchParams.get("q") || "";
+  const isHomePage = pathname === "/";
 
   return (
     <nav className="fixed left-4 right-4 top-5 z-40 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 backdrop-blur-md dark:border-zinc-800 dark:bg-black/60 md:left-6 md:right-6 md:px-6 md:py-1 lg:left-1/2 lg:w-[80%] lg:-translate-x-1/2 lg:right-auto xl:w-[80%]">
@@ -24,6 +26,15 @@ export function Navbar() {
           />
         </Link>
         <div className="flex items-center gap-3 md:gap-4">
+          {/* Explore Collection - Mobile only, not on homepage */}
+          {!isHomePage && (
+            <Link
+              href="/collection"
+              className="rounded-full bg-red-600 px-3 py-1.5 text-xs font-medium text-white transition-all duration-300 hover:bg-red-700 hover:shadow-md lg:hidden"
+            >
+              Explore Collection
+            </Link>
+          )}
           {/* Search - submits to /collection with ?q=... */}
           <form
             action="/collection"

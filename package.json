@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/nodejs": "^5.0.2",
+    "@stripe/stripe-js": "^8.3.0",
     "axios": "^1.7.7",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
@@ -17,7 +18,8 @@
     "next": "16.0.0",
     "nodemailer": "^6.9.14",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "stripe": "^19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

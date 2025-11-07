@@ -1,6 +1,46 @@
 import { NextResponse } from "next/server";
 import emailjs from "@emailjs/nodejs";
 
+// Retry function with exponential backoff
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  maxRetries: number = 3,
+  initialDelay: number = 1000
+): Promise<T> {
+  let lastError: any;
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error: any) {
+      lastError = error;
+
+      // Check if error is retryable (network errors, timeouts, etc.)
+      const isRetryable =
+        error?.message?.includes("ECONNRESET") ||
+        error?.message?.includes("socket disconnected") ||
+        error?.message?.includes("ETIMEDOUT") ||
+        error?.message?.includes("ENOTFOUND") ||
+        error?.code === "ECONNRESET" ||
+        error?.code === "ETIMEDOUT";
+
+      if (!isRetryable || attempt === maxRetries - 1) {
+        throw error;
+      }
+
+      // Exponential backoff: wait longer between each retry
+      const delay = initialDelay * Math.pow(2, attempt);
+      console.log(
+        `EmailJS attempt ${attempt + 1} failed, retrying in ${delay}ms...`,
+        error?.message
+      );
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+
+  throw lastError;
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -55,17 +95,41 @@ export async function POST(request: Request) {
       emailError = "EmailJS configuration is incomplete";
     } else {
       try {
+        // Build full address string
+        const addressParts = [
+          customer?.address,
+          customer?.apartment,
+          customer?.city,
+          customer?.province,
+          customer?.postalCode,
+          customer?.country,
+        ].filter(Boolean);
+        const fullAddress = addressParts.join(", ");
+
+        // Build customer name
+        const customerName = [customer?.firstName, customer?.lastName]
+          .filter(Boolean)
+          .join(" ");
+
         const templateParams = {
           to_email: toEmail,
-          customer_name: customer?.name || "",
+          customer_name: customerName || customer?.name || "",
+          customer_first_name: customer?.firstName || "",
+          customer_last_name: customer?.lastName || "",
           customer_email: customer?.email || "",
           customer_phone: customer?.phone || "",
           customer_address: customer?.address || "",
+          customer_apartment: customer?.apartment || "",
+          customer_city: customer?.city || "",
+          customer_province: province || customer?.province || "Not specified",
+          customer_postal_code: customer?.postalCode || "",
+          customer_country: customer?.country || "Canada",
+          customer_full_address: fullAddress || customer?.address || "",
           order_subtotal: `$${String(subtotal ?? 0)}`,
           order_tax: `$${String(tax ?? 0)}`,
           order_shipping: `$${String(shipping ?? 0)}`,
           order_total: `$${String(total ?? subtotal ?? 0)}`,
-          order_province: province || "Not specified",
+          order_province: province || customer?.province || "Not specified",
           order_lines: (items || [])
             .map(
               (i: any) => `${i.name} x ${i.quantity} = $${i.price * i.quantity}`
@@ -80,26 +144,49 @@ export async function POST(request: Request) {
           templateParams,
         });
 
-        const response = await emailjs.send(
-          serviceId,
-          templateId,
-          templateParams,
-          {
-            publicKey,
-            privateKey,
-          }
+        // Retry email sending with exponential backoff
+        const response = await retryWithBackoff(
+          async () => {
+            return await emailjs.send(serviceId, templateId, templateParams, {
+              publicKey,
+              privateKey,
+            });
+          },
+          3, // max 3 retries
+          1500 // initial delay 1.5 seconds
         );
 
         console.log("EmailJS email sent successfully:", response);
         emailSent = true;
       } catch (err: any) {
-        console.error("EmailJS order email failed:", {
+        console.error("EmailJS order email failed after retries:", {
           error: err?.message || err,
           status: err?.status,
           text: err?.text,
+          code: err?.code,
           details: err,
         });
-        emailError = err;
+
+        // Provide user-friendly error messages
+        let errorMessage = "Failed to send order confirmation email";
+        if (
+          err?.message?.includes("ECONNRESET") ||
+          err?.message?.includes("socket disconnected")
+        ) {
+          errorMessage =
+            "Network connection error. Please check your internet connection and try again.";
+        } else if (err?.message?.includes("ETIMEDOUT")) {
+          errorMessage = "Request timed out. Please try again.";
+        } else if (err?.message) {
+          errorMessage = err.message;
+        } else if (err?.text) {
+          errorMessage = err.text;
+        }
+
+        emailError = {
+          message: errorMessage,
+          originalError: err,
+        };
       }
     }
 
@@ -108,8 +195,15 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Failed to send order confirmation email",
+          error:
+            emailError?.message || "Failed to send order confirmation email",
           details: emailError?.message || emailError?.text || "Unknown error",
+          retryable:
+            emailError?.originalError?.message?.includes("ECONNRESET") ||
+            emailError?.originalError?.message?.includes(
+              "socket disconnected"
+            ) ||
+            emailError?.originalError?.message?.includes("ETIMEDOUT"),
         },
         { status: 500 }
       );
