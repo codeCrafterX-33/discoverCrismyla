@@ -2,6 +2,7 @@
 
 import { HeroCarousel } from "@crismyla/components/HeroCarousel";
 import { ProductCard } from "@crismyla/components/ProductCard";
+import { CustomerInfoForm } from "@crismyla/components/CustomerInfoForm";
 import { categories, products } from "@crismyla/data/products";
 import { motion } from "framer-motion";
 
@@ -485,6 +486,36 @@ export default function Home() {
                 </div>
               </footer>
             </blockquote>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Customer Info Form Section */}
+      <section className="bg-white py-16 lg:py-20 dark:bg-zinc-950">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="mb-12 text-center md:mb-16"
+          >
+            <h2 className="mb-4 font-serif text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 md:text-4xl lg:text-5xl">
+              Join the Crismyla Community
+            </h2>
+            <p className="mx-auto max-w-2xl text-base text-zinc-600 dark:text-zinc-400 md:text-lg">
+              Sign up now and receive exclusive coupons, early access to new products, and special discounts. Be the first to know about our latest beauty collections and limited-time offers.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
+            className="mx-auto flex justify-center"
+          >
+            <CustomerInfoForm />
           </motion.div>
         </div>
       </section>
