@@ -2,6 +2,7 @@
 
 import React, { useState, useTransition } from "react";
 import axios from "axios";
+import { getApiUrl } from "@crismyla/lib/api-config";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ export function NewsletterForm() {
     setMessage(undefined);
     startTransition(async () => {
       try {
-        await axios.post("/api/newsletter", { email });
+        await axios.post(getApiUrl("/api/newsletter"), { email });
         setEmail("");
         setStatus("success");
         setMessage("Thanks for subscribing!");

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { categories, products } from "@crismyla/data/products";
 import { ProductCard } from "@crismyla/components/ProductCard";
@@ -13,7 +13,7 @@ type SortOption =
   | "name-asc"
   | "name-desc";
 
-export default function CollectionPage() {
+function CollectionPageContent() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(() => searchParams.get("q") || "");
   const [category, setCategory] = useState<string>("All");
@@ -602,5 +602,24 @@ export default function CollectionPage() {
         </>
       </motion.button>
     </div>
+  );
+}
+
+export default function CollectionPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          <div className="text-center">
+            <div className="mb-4 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent"></div>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              Loading collection...
+            </p>
+          </div>
+        </div>
+      }
+    >
+      <CollectionPageContent />
+    </Suspense>
   );
 }

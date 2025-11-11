@@ -7,6 +7,7 @@ import { useCart } from "@crismyla/context/cart-context";
 import { formatCurrency } from "@crismyla/lib/format";
 import { PROVINCE_NAMES, type CanadianProvince } from "@crismyla/lib/tax";
 import { products } from "@crismyla/data/products";
+import { getApiUrl } from "@crismyla/lib/api-config";
 
 export default function OrderPage() {
   const {
@@ -136,7 +137,7 @@ export default function OrderPage() {
     setErrorMessage(""); // Clear any previous error messages
     startTransition(async () => {
       try {
-        const response = await axios.post("/api/order", {
+        const response = await axios.post(getApiUrl("/api/order"), {
           customer: form,
           items,
           subtotal,

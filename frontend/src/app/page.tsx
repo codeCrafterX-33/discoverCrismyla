@@ -149,19 +149,13 @@ export default function Home() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={1.5}
-                      d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
+                      d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
                     />
                   </svg>
                 ),
-                title: "Artisanal Craftsmanship",
+                title: "Expert Formulation",
                 description:
-                  "Handcrafted with attention to detail, ensuring every product meets our exacting standards.",
+                  "Scientifically-backed formulas developed by beauty experts to deliver visible, transformative results.",
               },
               {
                 icon: (
@@ -427,8 +421,34 @@ export default function Home() {
           </motion.div>
 
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {products
-              .filter((p) => p.tags?.includes("bestseller") || p.badge)
+            {[
+              // Get 1 skincare product with bestseller tag or badge
+              ...products
+                .filter(
+                  (p) =>
+                    p.category === "Skincare" &&
+                    (p.tags?.includes("bestseller") || p.badge)
+                )
+                .slice(0, 1),
+              // Get 1 perfume (100ml) with bestseller tag or badge
+              ...products
+                .filter(
+                  (p) =>
+                    p.category === "Fragrance" &&
+                    p.name.includes("(100ml)") &&
+                    (p.tags?.includes("bestseller") || p.badge)
+                )
+                .slice(0, 1),
+              // Get 1 diffuser with bestseller tag or badge
+              ...products
+                .filter(
+                  (p) =>
+                    p.category === "Diffuser & Home Scent" &&
+                    p.name.toLowerCase().includes("diffuser") &&
+                    (p.tags?.includes("bestseller") || p.badge)
+                )
+                .slice(0, 1),
+            ]
               .slice(0, 3)
               .map((product, idx) => (
                 <ProductCard key={product.id} product={product} index={idx} />
@@ -456,37 +476,72 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-            className="mx-auto max-w-3xl"
-          >
-            <blockquote className="space-y-6 rounded-sm border-l-4 border-[#4A322A] bg-white p-8 shadow-sm dark:bg-zinc-800 dark:border-[#7A5844]">
-              <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                "Crismyla delivered outstanding results with their premium
-                beauty products. The quality is exceptional, with excellent
-                attention to detail and a high standard of craftsmanship
-                throughout. I was particularly impressed by their responsiveness
-                and the personalized care they put into every order.
-              </p>
-              <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                Their ability to combine luxury quality with reliable customer
-                service made the entire experience seamless. I would not
-                hesitate to recommend Crismyla to anyone seeking dependable and
-                high-quality beauty solutions."
-              </p>
-              <footer className="pt-4">
-                <div className="font-medium text-zinc-900 dark:text-zinc-50">
-                  Sarah M.
-                </div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                  Satisfied Client
-                </div>
-              </footer>
-            </blockquote>
-          </motion.div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                quote:
+                  "Crismyla delivered outstanding results with their premium beauty products. The quality is exceptional, with excellent attention to detail and a high standard of craftsmanship throughout. I was particularly impressed by their responsiveness and the personalized care they put into every order. Their ability to combine luxury quality with reliable customer service made the entire experience seamless.",
+                author: "Sarah M.",
+                role: "Satisfied Client",
+              },
+              {
+                quote:
+                  "I've been using Crismyla's skincare products for months now, and I'm absolutely in love! My skin has never looked better. The natural ingredients make such a difference, and I love knowing I'm using products that are both effective and gentle on my skin.",
+                author: "Jessica K.",
+                role: "Loyal Customer",
+              },
+              {
+                quote:
+                  "The fragrances from Crismyla are absolutely divine! I get compliments everywhere I go. The scents are unique, long-lasting, and truly luxurious. The packaging is also beautiful - it feels like a premium experience from start to finish.",
+                author: "Amanda R.",
+                role: "Fragrance Enthusiast",
+              },
+              {
+                quote:
+                  "As someone with sensitive skin, I'm always cautious about trying new products. Crismyla's gentle formulations have been a game-changer for me. No irritation, just beautiful, glowing results. I can't recommend them enough!",
+                author: "Michelle T.",
+                role: "Skincare Advocate",
+              },
+              {
+                quote:
+                  "The customer service at Crismyla is second to none. They helped me find the perfect products for my skin type, and the results speak for themselves. Plus, the free shipping on larger orders is such a nice bonus!",
+                author: "Rachel L.",
+                role: "Happy Customer",
+              },
+              {
+                quote:
+                  "I've tried many beauty brands, but Crismyla stands out for their commitment to quality and authenticity. The artisanal soaps are my favorite - they're beautifully crafted and leave my skin feeling amazing. This is a brand I'll continue to support!",
+                author: "Emily C.",
+                role: "Beauty Enthusiast",
+              },
+            ].map((testimonial, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 1,
+                  delay: idx * 0.1,
+                  ease: "easeInOut",
+                }}
+              >
+                <blockquote className="h-full space-y-4 rounded-sm border-l-4 border-[#4A322A] bg-white p-6 shadow-sm dark:bg-zinc-800 dark:border-[#7A5844]">
+                  <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+                    "{testimonial.quote}"
+                  </p>
+                  <footer className="pt-4">
+                    <div className="font-medium text-zinc-900 dark:text-zinc-50">
+                      {testimonial.author}
+                    </div>
+                    <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                      {testimonial.role}
+                    </div>
+                  </footer>
+                </blockquote>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -504,7 +559,9 @@ export default function Home() {
               Join the Crismyla Community
             </h2>
             <p className="mx-auto max-w-2xl text-base text-zinc-600 dark:text-zinc-400 md:text-lg">
-              Sign up now and receive exclusive coupons, early access to new products, and special discounts. Be the first to know about our latest beauty collections and limited-time offers.
+              Sign up now and receive exclusive coupons, early access to new
+              products, and special discounts. Be the first to know about our
+              latest beauty collections and limited-time offers.
             </p>
           </motion.div>
 

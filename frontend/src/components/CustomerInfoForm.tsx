@@ -2,6 +2,7 @@
 
 import React, { useState, useTransition } from "react";
 import axios from "axios";
+import { getApiUrl } from "@crismyla/lib/api-config";
 
 export function CustomerInfoForm() {
   const [name, setName] = useState("");
@@ -49,7 +50,7 @@ export function CustomerInfoForm() {
     setMessage(undefined);
     startTransition(async () => {
       try {
-        const response = await axios.post("/api/customer-info", { name, email, whatsapp });
+        const response = await axios.post(getApiUrl("/api/customer-info"), { name, email, whatsapp });
         setSubmittedEmail(email);
         setName("");
         setEmail("");

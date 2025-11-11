@@ -1,15 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { useCart } from "@crismyla/context/cart-context";
 import Image from "next/image";
 import { useSearchParams, usePathname } from "next/navigation";
 
+function SearchForm() {
+  const searchParams = useSearchParams();
+  const currentQuery = searchParams.get("q") || "";
+
+  return (
+    <form
+      action="/collection"
+      method="get"
+      className="hidden items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm backdrop-blur-md transition-colors hover:border-zinc-300 dark:border-zinc-700 dark:bg-black/60 lg:flex"
+    >
+      <svg
+        className="h-4 w-4 text-zinc-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+      <input
+        type="text"
+        name="q"
+        defaultValue={currentQuery}
+        placeholder="Search products..."
+        aria-label="Search products"
+        className="w-48 bg-transparent text-base outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+      />
+      <button type="submit" className="sr-only">
+        Search
+      </button>
+    </form>
+  );
+}
+
 export function Navbar() {
   const { count } = useCart();
-  const searchParams = useSearchParams();
   const pathname = usePathname();
-  const currentQuery = searchParams.get("q") || "";
   const isHomePage = pathname === "/";
 
   return (
@@ -36,36 +73,33 @@ export function Navbar() {
             </Link>
           )}
           {/* Search - submits to /collection with ?q=... */}
-          <form
-            action="/collection"
-            method="get"
-            className="hidden items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm backdrop-blur-md transition-colors hover:border-zinc-300 dark:border-zinc-700 dark:bg-black/60 lg:flex"
-          >
-            <svg
-              className="h-4 w-4 text-zinc-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          <Suspense fallback={
+            <div className="hidden items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm backdrop-blur-md dark:border-zinc-700 dark:bg-black/60 lg:flex">
+              <svg
+                className="h-4 w-4 text-zinc-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <input
+                type="text"
+                name="q"
+                placeholder="Search products..."
+                aria-label="Search products"
+                className="w-48 bg-transparent text-base outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+                disabled
               />
-            </svg>
-            <input
-              type="text"
-              name="q"
-              defaultValue={currentQuery}
-              placeholder="Search products..."
-              aria-label="Search products"
-              className="w-48 bg-transparent text-base outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
-            />
-            <button type="submit" className="sr-only">
-              Search
-            </button>
-          </form>
+            </div>
+          }>
+            <SearchForm />
+          </Suspense>
           <Link
             href="/collection"
             className="hidden rounded-full bg-red-600 px-4 py-1.5 text-sm font-medium text-white transition-all duration-300 hover:bg-red-700 hover:shadow-md lg:inline-flex"
