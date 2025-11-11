@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: crismyla-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    # Add your environment variables in Render dashboard:
+    # EMAILJS_PUBLIC_KEY
+    # EMAILJS_PRIVATE_KEY
+    # EMAILJS_SERVICE_ID
+    # EMAILJS_TEMPLATE_ID
+    # EMAILJS_ORDER_TEMPLATE_ID
+    # NEWSLETTER_TO_EMAIL
+    # CUSTOMER_INFO_EMAILJS_TEMPLATE_ID
+    # CUSTOMER_INFO_TO_EMAIL
+
